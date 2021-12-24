@@ -1,4 +1,6 @@
 import React from "react";
+import { Alert} from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { HighlightCard } from "../../components/HighlightCard";
 import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
@@ -16,6 +18,8 @@ import {
     Transactions,
     Title,
     TransactionList,
+    LogouButton
+
 
  } from "./styles";
 
@@ -60,6 +64,10 @@ export function Dashboard(){
         }
     ]
 
+    function handleLogout (){
+        Alert.alert('clicou');
+    }
+
     return(
          <Container >
             <Header>
@@ -71,7 +79,11 @@ export function Dashboard(){
                             <UserName>Luana </UserName>
                         </User>
                     </UserInfo>
-                    <Icon name="power"/>
+                    <GestureHandlerRootView>
+                        <LogouButton onPress={()=>{}}>
+                            <Icon name="power"/>
+                        </LogouButton>
+                    </GestureHandlerRootView>
                 </UserWrapper>  
             </Header>
             <HighlightCards>
